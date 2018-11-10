@@ -16,7 +16,7 @@ def draw_board():
 			draw_filled_rectangle if board_configuration[x][y]==1
 
 def run_game():
-	while game_end():
+	while not game_end():
 		if mouse_clicked():
 			x_coord_mouse = get_X()
 			y_coord_mouse = get_Y()
