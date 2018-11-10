@@ -5,6 +5,8 @@ import stddraw
 
 board_configuration = [[]]
 turn = 1
+turnNumber=0
+
 def update_board(x,y,z):
 	find_real_xy()
 	board_configuration[x][y]=z
@@ -17,8 +19,10 @@ def draw_board():
 
 def run_game():
 	global turn
+	global turnNumber
 	while not game_end():
 		if mouse_clicked():
+			turnNumber+=1
 			x_coord_mouse = get_X()
 			y_coord_mouse = get_Y()
 			if turn is odd:
