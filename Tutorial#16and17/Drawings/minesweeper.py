@@ -4,10 +4,10 @@ import time,math
 import stddraw
 
 board_configuration = [[]]
-
-def update_board(x,y):
+turn = 1
+def update_board(x,y,z):
 	find_real_xy()
-	board_configuration[x][y]=1
+	board_configuration[x][y]=z
 	
 def draw_board():
 	for x in range(_):
@@ -16,11 +16,16 @@ def draw_board():
 			draw_filled_rectangle if board_configuration[x][y]==1
 
 def run_game():
+	global turn
 	while not game_end():
 		if mouse_clicked():
 			x_coord_mouse = get_X()
 			y_coord_mouse = get_Y()
-			update_board(x_coord_mouse, y_coord_mouse)
+			if turn is odd:
+				update_board(x_coord_mouse, y_coord_mouse,1)
+			else:
+				update_board(x_coord_mouse, y_coord_mouse,2)			
+			turn+=1
 
 		stddraw.clear()
 		draw_board()
