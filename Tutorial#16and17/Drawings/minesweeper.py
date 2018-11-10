@@ -16,15 +16,15 @@ def draw_board():
 			draw_filled_rectangle if board_configuration[x][y]==1
 
 def run_game():
-	
-	if mouse_clicked():
-		x_coord_mouse = get_X()
-		y_coord_mouse = get_Y()
-		update_board(x_coord_mouse, y_coord_mouse)
-	
-	stddraw.clear()
-	draw_board()
-	stddraw.show(400.0)
+	while game_end():
+		if mouse_clicked():
+			x_coord_mouse = get_X()
+			y_coord_mouse = get_Y()
+			update_board(x_coord_mouse, y_coord_mouse)
+
+		stddraw.clear()
+		draw_board()
+		stddraw.show(400.0)
 	
 	
 	
